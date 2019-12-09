@@ -1,7 +1,9 @@
 import React from 'react'
 import Page from './page'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import findSuggestions from '../../redux/actions/findSuggestions'
+import findResults from '../../redux/actions/findResults'
 
 class appBar extends React.Component{
 
@@ -20,6 +22,9 @@ class appBar extends React.Component{
     }
 
     onChangeSelection = text => {
+        this.setState({text})
+        this.props.findResults(text)
+        this.props.history.push('/results')
     }
 
     render(){
@@ -36,12 +41,13 @@ class appBar extends React.Component{
 
 const mapStateToProps = state => {
     return{
-        suggestions: state.suggestions
+        suggestions: state.currentItem
     }
 }
-
+    
 const mapDispatchToProps = {
-    findSuggestions
+    findSuggestions,
+    findResults
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(appBar)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(appBar))

@@ -1,11 +1,18 @@
-const defaultState = []
+// import data from '../../data/items'
 
-//Action = type y payload
-function reducer(state = defaultState, { type, payload }){
-    switch(type){
-        default:
-            return state
-    }
-}
+// const defaultState = []
 
-export default reducer
+// //Action = type y payload
+// function reducer(state = defaultState, { type, payload }){
+//     switch(type){
+//         case 'findResults':{
+//                 const regex = new RegExp(`^${payload}`, 'i')
+
+//                 return data.filter(n => regex.test(n.title))
+//         }
+//         default:
+//             return state
+//     }
+// }
+
+// export default reducer
