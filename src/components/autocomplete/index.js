@@ -61,17 +61,17 @@ class Autocomplete extends Component {
                 />
                 {isOpen &&
                 <Paper className="container-results" square>
-                    {suggestions.map(suggestion =>
-                    <MenuItem
-                        key={suggestion.id}
-                        component="div"
-                        onClick={() => {
-                            onChangeSelection(suggestion.title);
-                            this.setState({ isOpen: false });
-                        }}
-                    >
-                        {suggestion.title}
-                    </MenuItem>)}
+                    {suggestions.length ? suggestions.map(suggestion =>
+                        <MenuItem
+                            key={suggestion.id}
+                            component="div"
+                            onClick={() => {
+                                onChangeSelection(suggestion.title);
+                                this.setState({ isOpen: false });
+                            }}
+                        >
+                            {suggestion.title}
+                        </MenuItem>): ''}
                 </Paper>}
             </div>
         );
